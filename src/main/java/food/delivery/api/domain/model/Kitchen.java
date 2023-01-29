@@ -1,8 +1,6 @@
 package food.delivery.api.domain.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.Objects;
@@ -12,6 +10,7 @@ import java.util.Objects;
 @Data
 public class Kitchen {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
