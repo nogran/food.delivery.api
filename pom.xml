@@ -11,12 +11,13 @@
 
 	<groupId>food.delivery.api</groupId>
 	<artifactId>food.delivery.api</artifactId>
-	<version>1.1.0</version>
+	<version>1.2.0</version>
 	<name>Food Delivery</name>
 	<description>Food Delivery API</description>
 
 	<properties>
 		<java.version>17</java.version>
+		<lombok.version>1.18.24</lombok.version>
 	</properties>
 
 	<dependencies>
@@ -51,6 +52,13 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
+			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 
