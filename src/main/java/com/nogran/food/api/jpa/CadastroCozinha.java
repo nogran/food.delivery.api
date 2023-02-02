@@ -1,6 +1,6 @@
-package food.delivery.api.jpa;
+package com.nogran.food.api.jpa;
 
-import food.delivery.api.domain.model.Kitchen;
+import com.nogran.food.api.domain.model.Kitchen;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Component;

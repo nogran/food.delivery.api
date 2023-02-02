@@ -1,4 +1,4 @@
-package food.delivery.api.domain.model;
+package com.nogran.food.api.domain.model;
 
 import jakarta.persistence.*;
 import lombok.Data;

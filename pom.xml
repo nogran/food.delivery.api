@@ -9,11 +9,11 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
-	<groupId>food.delivery.api</groupId>
-	<artifactId>food.delivery.api</artifactId>
+	<groupId>com.nogran.food.api</groupId>
+	<artifactId>FoodDelivery</artifactId>
 	<version>1.3.0</version>
-	<name>Food Delivery</name>
-	<description>Food Delivery API</description>
+	<name>FoodDelivery</name>
+	<description>Nogran Food Delivery</description>
 
 	<properties>
 		<java.version>17</java.version>

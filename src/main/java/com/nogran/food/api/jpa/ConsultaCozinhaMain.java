@@ -1,7 +1,7 @@
-package food.delivery.api.jpa;
+package com.nogran.food.api.jpa;
 
-import food.delivery.api.FoodDeliveryApplication;
-import food.delivery.api.domain.model.Kitchen;
+import com.nogran.food.api.FoodDeliveryApplication;
+import com.nogran.food.api.domain.model.Kitchen;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationContext;

@@ -1,4 +1,4 @@
-package food.delivery.api;
+package com.nogran.food.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
