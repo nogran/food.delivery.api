@@ -1,6 +1,6 @@
 package com.nogran.food.api.jpa;
 
-import com.nogran.food.api.domain.model.Kitchen;
+import com.nogran.food.api.domain.model.Cozinha;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Component;
@@ -12,8 +12,8 @@ public class CadastroCozinha {
     @PersistenceContext
     private EntityManager manager;
 
-    public List<Kitchen> list() {
-        return manager.createQuery("from Kitchen", Kitchen.class)
+    public List<Cozinha> list() {
+        return manager.createQuery("from Cozinha", Cozinha.class)
                 .getResultList();
     }
 }

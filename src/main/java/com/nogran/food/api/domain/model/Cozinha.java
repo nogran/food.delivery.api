@@ -8,19 +8,19 @@ import java.util.Objects;
 @Entity
 @Table
 @Data
-public class Kitchen {
+public class Cozinha {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    private String nome;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Kitchen kitchen = (Kitchen) o;
-        return id.equals(kitchen.id);
+        Cozinha cozinha = (Cozinha) o;
+        return id.equals(cozinha.id);
     }
 
     @Override

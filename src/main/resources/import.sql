@@ -1,2 +1,2 @@
-INSERT INTO kitchen (name) VALUES ('Tailandesa');
-INSERT INTO kitchen (name) VALUES ('Indiana');
+INSERT INTO cozinha (nome) VALUES ('Tailandesa');
+INSERT INTO cozinha (nome) VALUES ('Indiana');
