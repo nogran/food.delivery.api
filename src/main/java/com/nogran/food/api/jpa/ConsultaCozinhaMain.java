@@ -2,6 +2,7 @@ package com.nogran.food.api.jpa;
 
 import com.nogran.food.api.FoodDeliveryApplication;
 import com.nogran.food.api.domain.model.Cozinha;
+import com.nogran.food.api.domain.repository.CozinhaRepository;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationContext;
@@ -14,10 +15,10 @@ public class ConsultaCozinhaMain {
                 .web(WebApplicationType.NONE)
                 .run(args);
 
-        CadastroCozinha cadastroCozinha = applicationContext.getBean(CadastroCozinha.class);
-        List<Cozinha> cozinhas = cadastroCozinha.listar();
+        CozinhaRepository cozinhas = applicationContext.getBean(CozinhaRepository.class);
+        List<Cozinha> todasCozinhas = cozinhas.todas();
 
-        for (Cozinha cozinha : cozinhas) {
+        for (Cozinha cozinha : todasCozinhas) {
             System.out.println(cozinha.getNome());
         }
     }
