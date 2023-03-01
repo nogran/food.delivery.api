@@ -1,21 +1,23 @@
 package com.nogran.food.api.domain.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.math.BigDecimal;
 
 @Data
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
 public class Restaurante {
 
+    @EqualsAndHashCode.Include
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    private String nome ;
 
-    @Column(name = "delivery_tax")
-    private BigDecimal deliveryTax;
+    @Column(name = "taxa_frete")
+    private BigDecimal taxaFrete;
 }
