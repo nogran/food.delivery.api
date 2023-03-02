@@ -12,3 +12,5 @@ INSERT INTO estado (id, nome) VALUES (2, 'SP');
 
 INSERT INTO cidade (id, nome, estado_id) VALUES (1, 'BH', 1);
 INSERT INTO cidade (id, nome, estado_id) VALUES (2, 'SP', 2);
+
+INSERT INTO permissao (id, nome, descricao) VALUES (1, 'Produtos', 'Permite consultar produtos');
