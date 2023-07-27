@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface EstadoRepository {
 
-    List<Estado> todos();
+    List<Estado> listar();
 
     Estado porId(Long id);
 
