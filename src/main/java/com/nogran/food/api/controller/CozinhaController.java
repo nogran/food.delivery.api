@@ -4,12 +4,12 @@ import com.nogran.food.api.domain.model.Cozinha;
 import com.nogran.food.api.domain.repository.CozinhaRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
 @RequestMapping("/cozinhas")
+@RestController
 public class CozinhaController {
 
     @Autowired
