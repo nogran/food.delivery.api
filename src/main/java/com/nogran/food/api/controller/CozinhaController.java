@@ -1,10 +1,13 @@
 package com.nogran.food.api.controller;
 
-import com.nogran.food.api.domain.model.Cozinha;
-import com.nogran.food.api.domain.repository.CozinhaRepository;
+import com.nogran.food.api.model.CozinhasJacksonXmlElementWrapper;
+import com.nogran.food.domain.model.Cozinha;
+import com.nogran.food.domain.repository.CozinhaRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,5 +21,15 @@ public class CozinhaController {
     @GetMapping
     public List<Cozinha> listar() {
         return cozinhaRepository.listar();
+    }
+
+    @GetMapping(produces = MediaType.APPLICATION_XML_VALUE)
+    public CozinhasJacksonXmlElementWrapper listarXml() {
+        return new CozinhasJacksonXmlElementWrapper(cozinhaRepository.listar());
+    }
+
+    @GetMapping("/{id}")
+    public Cozinha listarPorId(@PathVariable Long id) {
+        return cozinhaRepository.porId(id);
     }
 }

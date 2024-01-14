@@ -1,7 +1,7 @@
 package com.nogran.food.api.controller;
 
-import com.nogran.food.api.domain.model.Estado;
-import com.nogran.food.api.domain.repository.EstadoRepository;
+import com.nogran.food.domain.model.Estado;
+import com.nogran.food.domain.repository.EstadoRepository;
 import java.util.List;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

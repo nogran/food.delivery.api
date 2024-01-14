@@ -1,7 +1,7 @@
-package com.nogran.food.api.infrastructure.repository;
+package com.nogran.food.infrastructure.repository;
 
-import com.nogran.food.api.domain.model.Restaurante;
-import com.nogran.food.api.domain.repository.RestauranteRepository;
+import com.nogran.food.domain.model.Restaurante;
+import com.nogran.food.domain.repository.RestauranteRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Component;

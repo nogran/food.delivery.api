@@ -1,4 +1,4 @@
-package com.nogran.food.api.domain.model;
+package com.nogran.food.domain.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -7,7 +7,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-public class Cidade {
+public class Estado {
 
     @EqualsAndHashCode.Include
     @Id
@@ -16,7 +16,4 @@ public class Cidade {
 
     private String nome;
 
-    @ManyToOne
-    @JoinColumn(name = "estado_id")
-    private Estado estado;
 }

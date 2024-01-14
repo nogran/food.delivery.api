@@ -1,13 +1,15 @@
-package com.nogran.food.api.domain.model;
+package com.nogran.food.domain.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.math.BigDecimal;
+
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-public class Permissao {
+public class Restaurante {
 
     @EqualsAndHashCode.Include
     @Id
@@ -16,5 +18,10 @@ public class Permissao {
 
     private String nome;
 
-    private String descricao;
+    @Column(name = "taxa_frete")
+    private BigDecimal taxaFrete;
+
+    @ManyToOne
+    @JoinColumn(name = "cozinha_id")
+    private Cozinha cozinha;
 }

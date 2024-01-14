@@ -1,6 +1,6 @@
-package com.nogran.food.api.domain.repository;
+package com.nogran.food.domain.repository;
 
-import com.nogran.food.api.domain.model.Cidade;
+import com.nogran.food.domain.model.Cidade;
 
 import java.util.List;
 

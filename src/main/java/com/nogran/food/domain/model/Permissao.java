@@ -1,4 +1,4 @@
-package com.nogran.food.api.domain.model;
+package com.nogran.food.domain.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -7,7 +7,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-public class Cozinha {
+public class Permissao {
 
     @EqualsAndHashCode.Include
     @Id
@@ -15,4 +15,6 @@ public class Cozinha {
     private Long id;
 
     private String nome;
+
+    private String descricao;
 }

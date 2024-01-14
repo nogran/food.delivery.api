@@ -1,4 +1,4 @@
-package com.nogran.food.api.domain.model;
+package com.nogran.food.domain.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
