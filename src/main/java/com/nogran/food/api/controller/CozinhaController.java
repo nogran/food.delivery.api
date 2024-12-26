@@ -3,6 +3,7 @@ package com.nogran.food.api.controller;
 import com.nogran.food.api.model.CozinhasJacksonXmlElementWrapper;
 import com.nogran.food.domain.model.Cozinha;
 import com.nogran.food.domain.repository.CozinhaRepository;
+import com.nogran.food.domain.service.CozinhaService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -19,6 +20,9 @@ public class CozinhaController {
 
     @Autowired
     private CozinhaRepository cozinhaRepository;
+
+    @Autowired
+    private CozinhaService cozinhaService;
 
     @GetMapping
     public List<Cozinha> listar() {
@@ -42,7 +46,7 @@ public class CozinhaController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Cozinha adicionar(@RequestBody Cozinha cozinha) {
-        return cozinhaRepository.salvar(cozinha);
+        return cozinhaService.salvar(cozinha);
     }
 
     @PutMapping("/{id}")
