@@ -9,6 +9,8 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CozinhaService {
 
@@ -17,6 +19,14 @@ public class CozinhaService {
 
     public Cozinha salvar(Cozinha cozinha) {
         return cozinhaRepository.salvar(cozinha);
+    }
+
+    public List<Cozinha> listar() {
+        return cozinhaRepository.listar();
+    }
+
+    public Cozinha buscarPorId(Long id) {
+        return cozinhaRepository.buscarPorId(id);
     }
 
     public void remover(Long id) {
