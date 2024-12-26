@@ -3,6 +3,7 @@ package com.nogran.food.domain.repository;
 import com.nogran.food.domain.model.Cozinha;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -31,8 +32,11 @@ public class CozinhaRepositoryImpl implements CozinhaRepository {
 
     @Override
     @Transactional
-    public void remover(Cozinha cozinha) {
-        cozinha = buscarPorId(cozinha.getId());
+    public void remover(Long id) {
+        Cozinha cozinha = buscarPorId(id);
+        if (cozinha == null) {
+            throw new EmptyResultDataAccessException(1);
+        }
         manager.remove(cozinha);
     }
 }
