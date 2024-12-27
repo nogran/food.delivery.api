@@ -1,6 +1,7 @@
-package com.nogran.food.domain.repository;
+package com.nogran.food.infrastructure.repository;
 
 import com.nogran.food.domain.model.Cozinha;
+import com.nogran.food.domain.repository.CozinhaRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.dao.EmptyResultDataAccessException;

@@ -26,14 +26,14 @@ public class RestauranteRepositoryImpl implements RestauranteRepository {
 
     @Override
     @Transactional
-    public Restaurante adicionar(Restaurante restaurante) {
+    public Restaurante salvar(Restaurante restaurante) {
         return manager.merge(restaurante);
     }
 
     @Override
     @Transactional
-    public void remover(Restaurante restaurante) {
-        restaurante = buscarPorId(restaurante.getId());
+    public void remover(Long id) {
+        Restaurante restaurante = buscarPorId(id);
         manager.remove(restaurante);
     }
 }
