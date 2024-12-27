@@ -4,9 +4,10 @@ import com.nogran.food.domain.model.Cidade;
 import com.nogran.food.domain.repository.CidadeRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import java.util.List;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Component
 public class CidadeRepositoryImpl implements CidadeRepository {
@@ -15,12 +16,12 @@ public class CidadeRepositoryImpl implements CidadeRepository {
     private EntityManager manager;
 
     @Override
-    public List<Cidade> todas() {
+    public List<Cidade> listar() {
         return manager.createQuery("from Cidade", Cidade.class).getResultList();
     }
 
     @Override
-    public Cidade porId(Long id) {
+    public Cidade buscarPorId(Long id) {
         return manager.find(Cidade.class, id);
     }
 
@@ -32,8 +33,8 @@ public class CidadeRepositoryImpl implements CidadeRepository {
 
     @Override
     @Transactional
-    public void remover(Cidade cidade) {
-        cidade = porId(cidade.getId());
+    public void remover(Long id) {
+        Cidade cidade = buscarPorId(id);
         manager.remove(cidade);
     }
 }

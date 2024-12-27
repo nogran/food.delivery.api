@@ -37,11 +37,9 @@ public class EstadoRepositoryImpl implements EstadoRepository {
     @Override
     public void remover(Long id) {
         Estado estado = buscarPorId(id);
-
         if (estado == null) {
             throw new EmptyResultDataAccessException(1);
         }
-
         manager.remove(estado);
     }
 }

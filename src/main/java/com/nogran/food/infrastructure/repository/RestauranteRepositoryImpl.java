@@ -4,6 +4,7 @@ import com.nogran.food.domain.model.Restaurante;
 import com.nogran.food.domain.repository.RestauranteRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -34,6 +35,9 @@ public class RestauranteRepositoryImpl implements RestauranteRepository {
     @Transactional
     public void remover(Long id) {
         Restaurante restaurante = buscarPorId(id);
+        if (restaurante == null) {
+            throw new EmptyResultDataAccessException(1);
+        }
         manager.remove(restaurante);
     }
 }

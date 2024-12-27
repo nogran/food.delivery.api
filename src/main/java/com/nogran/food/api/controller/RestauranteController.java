@@ -1,5 +1,6 @@
 package com.nogran.food.api.controller;
 
+import com.nogran.food.domain.exception.EntidadeEmUsoException;
 import com.nogran.food.domain.exception.EntidadeNaoEncontradaException;
 import com.nogran.food.domain.model.Restaurante;
 import com.nogran.food.domain.service.RestauranteService;
@@ -58,6 +59,19 @@ public class RestauranteController {
             return ResponseEntity.notFound().build();
         } catch (EntidadeNaoEncontradaException e) {
             return ResponseEntity.badRequest()
+                    .body(e.getMessage());
+        }
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> remover(@PathVariable Long id) {
+        try {
+            restauranteService.remover(id);
+            return ResponseEntity.noContent().build();
+        } catch (EntidadeNaoEncontradaException e) {
+            return ResponseEntity.notFound().build();
+        } catch (EntidadeEmUsoException e) {
+            return ResponseEntity.status(HttpStatus.CONFLICT)
                     .body(e.getMessage());
         }
     }
