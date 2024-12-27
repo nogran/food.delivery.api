@@ -2,7 +2,9 @@ package com.nogran.food.domain.service;
 
 import com.nogran.food.domain.exception.EntidadeEmUsoException;
 import com.nogran.food.domain.exception.EntidadeNaoEncontradaException;
+import com.nogran.food.domain.model.Cozinha;
 import com.nogran.food.domain.model.Restaurante;
+import com.nogran.food.domain.repository.CozinhaRepository;
 import com.nogran.food.domain.repository.RestauranteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -17,7 +19,17 @@ public class RestauranteService {
     @Autowired
     private RestauranteRepository restauranteRepository;
 
+    @Autowired
+    private CozinhaRepository cozinhaRepository;
+
     public Restaurante salvar(Restaurante restaurante) {
+        Long cozinhaId = restaurante.getCozinha().getId();
+        Cozinha cozinha = cozinhaRepository.buscarPorId(cozinhaId);
+        if (cozinha == null) {
+            throw new EntidadeNaoEncontradaException(
+                    String.format("Não existe cadastro de cozinha com código %d", cozinhaId));
+        }
+        restaurante.setCozinha(cozinha);
         return restauranteRepository.salvar(restaurante);
     }
 

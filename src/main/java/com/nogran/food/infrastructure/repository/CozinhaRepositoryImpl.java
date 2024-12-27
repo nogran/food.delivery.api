@@ -12,6 +12,7 @@ import java.util.List;
 
 @Component
 public class CozinhaRepositoryImpl implements CozinhaRepository {
+
     @PersistenceContext
     private EntityManager manager;
 
