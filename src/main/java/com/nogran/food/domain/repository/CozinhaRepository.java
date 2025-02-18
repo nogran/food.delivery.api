@@ -1,16 +1,16 @@
 package com.nogran.food.domain.repository;
 
 import com.nogran.food.domain.model.Cozinha;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import java.util.List;
+import java.util.Optional;
 
-public interface CozinhaRepository {
+@Repository
+public interface CozinhaRepository extends JpaRepository<Cozinha, Long> {
 
-    List<Cozinha> listar();
+    Optional<Cozinha> findById(Long id);
 
-    Cozinha buscarPorId(Long id);
+    void removeById(Long id);
 
-    Cozinha salvar(Cozinha cozinha);
-
-    void remover(Long id);
 }

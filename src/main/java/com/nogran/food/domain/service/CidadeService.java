@@ -12,6 +12,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CidadeService {
@@ -23,27 +24,27 @@ public class CidadeService {
     private EstadoRepository estadoRepository;
 
     public List<Cidade> listar() {
-        return cidadeRepository.listar();
+        return cidadeRepository.findAll();
     }
 
-    public Cidade buscarPorId(Long id) {
-        return cidadeRepository.buscarPorId(id);
+    public Optional<Cidade> buscarPorId(Long id) {
+        return cidadeRepository.findById(id);
     }
 
     public Cidade adicionar(Cidade cidade) {
         Long estadoId = cidade.getEstado().getId();
-        Estado estado = estadoRepository.buscarPorId(estadoId);
-        if (estado == null) {
+        Optional<Estado> estado = estadoRepository.findById(estadoId);
+        if (estado.isEmpty()) {
             throw new EntidadeNaoEncontradaException(
                     String.format("Não existe cadastro de estado com código %d", estadoId));
         }
-        cidade.setEstado(estado);
-        return cidadeRepository.adicionar(cidade);
+        cidade.setEstado(estado.get());
+        return cidadeRepository.save(cidade);
     }
 
     public void remover(Long cidadeId) {
         try {
-            cidadeRepository.remover(cidadeId);
+            cidadeRepository.removeById(cidadeId);
         } catch (EmptyResultDataAccessException e) {
             throw new EntidadeNaoEncontradaException(
                     String.format("Não existe um cadastro de cidade com código %d", cidadeId));
