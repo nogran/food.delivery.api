@@ -11,6 +11,8 @@ public interface CozinhaRepository extends JpaRepository<Cozinha, Long> {
 
     Optional<Cozinha> findById(Long id);
 
+    Optional<Cozinha> findByNome(String nome);
+
     void removeById(Long id);
 
 }

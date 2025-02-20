@@ -4,13 +4,12 @@ import com.nogran.food.domain.exception.EntidadeEmUsoException;
 import com.nogran.food.domain.exception.EntidadeNaoEncontradaException;
 import com.nogran.food.domain.model.Cozinha;
 import com.nogran.food.domain.repository.CozinhaRepository;
+import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.Optional;
 
 @Service
 public class CozinhaService {
@@ -30,13 +29,19 @@ public class CozinhaService {
         return cozinhaRepository.findById(id);
     }
 
+    public Optional<Cozinha> buscarPorNome(String nome) {
+        return cozinhaRepository.findByNome(nome);
+    }
+
     public void remover(Long id) {
         try {
             cozinhaRepository.removeById(id);
         } catch (EmptyResultDataAccessException e) {
-            throw new EntidadeNaoEncontradaException(String.format("Cozinha de codigo %d nao encontrada", id));
+            throw new EntidadeNaoEncontradaException(
+                  String.format("Cozinha de codigo %d nao encontrada", id));
         } catch (DataIntegrityViolationException e) {
-            throw new EntidadeEmUsoException(String.format("Cozinha de codigo %d nao pode ser removida pois esta em uso", id));
+            throw new EntidadeEmUsoException(
+                  String.format("Cozinha de codigo %d nao pode ser removida pois esta em uso", id));
         }
     }
 }

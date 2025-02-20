@@ -14,3 +14,5 @@ INSERT INTO cidade (id, nome, estado_id) VALUES (1, 'BH', 1);
 INSERT INTO cidade (id, nome, estado_id) VALUES (2, 'SP', 2);
 
 INSERT INTO permissao (id, nome, descricao) VALUES (1, 'Produtos', 'Permite consultar produtos');
+
+insert into restaurante_forma_pagamento (restaurante_id, forma_pagamento_id) values (1, 1), (1, 2), (1, 3), (2, 3), (3, 2), (3, 3);
